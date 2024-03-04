@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "716016841585",
+    "project_id": "foodie-heaven-999f3",
+    "storage_bucket": "foodie-heaven-999f3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716016841585:android:e38d030b819151ada6bcd0",
+        "android_client_info": {
+          "package_name": "com.thayiba.foodie_heaven"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAS2oSAlqdcaukwvpyazA2IQ79KZKTGVmE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
