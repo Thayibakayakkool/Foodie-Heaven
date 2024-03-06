@@ -5,6 +5,7 @@ import 'package:foodie_heaven/src/core/constants/constants.dart';
 import 'package:foodie_heaven/src/core/constants/styles.dart';
 import 'package:foodie_heaven/src/core/utils/utils.dart';
 import 'package:foodie_heaven/src/features/presentation/features/pages/bloc/wishlist/wishlist_bloc.dart';
+import 'package:foodie_heaven/src/features/presentation/features/pages/home/categories_page/product_details_page/product_details_page.dart';
 import 'package:foodie_heaven/src/features/presentation/features/pages/home/widgets/text_widget.dart';
 
 class WishlistPage extends StatelessWidget {
@@ -52,44 +53,47 @@ class WishlistPage extends StatelessWidget {
                     itemCount: state.wishlistEntity.length,
                     itemBuilder: (context, index) {
                       var data = state.wishlistEntity[index];
-                      return Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: appColors.amber)),
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                IconButton(
-                                    onPressed: () {},
-                                    icon: state.wishlistIds.contains(data.id)
-                                        ? Icon(
-                                            Icons.favorite,
-                                            color: appColors.amber,
-                                          )
-                                        : Icon(
-                                            Icons.favorite_outline,
-                                            color: appColors.amber,
-                                          ))
-                              ],
-                            ),
-                            CircleAvatar(
-                              radius: 62,
-                              backgroundImage: NetworkImage(data.image),
-                            ),
-                            kSizedBox5,
-                            Text(
-                              data.name,
-                              style: regularTextStyle(
-                                  FontWeight.bold, appColors.amber, 16),
-                              textAlign: TextAlign.center,
-                            ),
-                            kSizedBox5,
-                            Text('₹ ' '${data.price}',
-                                style:
-                                    textStyle(appColors.amberShade700, 16)),
-                          ],
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ProductDetailsPage(
+                                  image: data.image,
+                                  desc: data.desc,
+                                  rating: data.rating,
+                                  calories: data.calories,
+                                  time: data.time,
+                                  price: data.price,
+                                  name: data.name,
+                                  id: data.id,
+                                ),
+                              ));
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(color: appColors.amber)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              CircleAvatar(
+                                radius: 62,
+                                backgroundImage: NetworkImage(data.image),
+                              ),
+                              kSizedBox5,
+                              Text(
+                                data.name,
+                                style: regularTextStyle(
+                                    FontWeight.bold, appColors.amber, 16),
+                                textAlign: TextAlign.center,
+                              ),
+                              kSizedBox5,
+                              Text('₹ ' '${data.price}',
+                                  style:
+                                      textStyle(appColors.amberShade700, 16)),
+                            ],
+                          ),
                         ),
                       );
                     },

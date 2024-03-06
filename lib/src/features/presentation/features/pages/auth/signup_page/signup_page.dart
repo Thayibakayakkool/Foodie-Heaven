@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie_heaven/src/core/constants/colors.dart';
 import 'package:foodie_heaven/src/core/constants/constants.dart';
 import 'package:foodie_heaven/src/core/constants/string.dart';
+import 'package:foodie_heaven/src/core/routes/routes_name.dart';
 import 'package:foodie_heaven/src/core/utils/utils.dart';
 import 'package:foodie_heaven/src/features/domain/entities/user_entity.dart';
 import 'package:foodie_heaven/src/features/presentation/features/pages/auth/signup_page/widgets/phoneno_text_field_widget.dart';
@@ -170,7 +171,7 @@ class _SignUpPageState extends State<SignUpPage> {
               onTap: () {
                 Navigator.pushNamed(
                   context,
-                  '/logIn',
+                  loginPage,
                 );
               },
               child: richTextWidget(),

@@ -42,14 +42,10 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
   int total = 0;
   int a = 0;
   AppColors appColors = AppColors();
-  List<String> wishlistIds = [];
-
 
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<WishlistBloc>(context).add(GetWishlistDataEvent());
-    //_wishlistIds = context.read<WishlistBloc>().state.wishlistIds;
     total = int.parse(total.toString());
   }
 
@@ -67,17 +63,10 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
               color: appColors.amber,
             )),
         actions: [
-          BlocConsumer<WishlistBloc, WishlistState>(
-            listener: (context, state) {
-              if (state is WishlistSuccess) {
-                setState(() {
-                  wishlistIds = state.wishlistIds;
-                });
-              }
-            },
+          BlocBuilder<WishlistBloc, WishlistState>(
             builder: (context, state) {
               final isWishlisted =
-                  context.read<WishlistBloc>().wishlistIds.contains(widget.id);
+                  context.watch<WishlistBloc>().wishlistIds.contains(widget.id);
 
               if (state is WishlistLoading) {
                 return Utils().loadingWidget();
@@ -186,7 +175,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                               setState(() {});
                             }
                           },
-                          child:  Icon(
+                          child: Icon(
                             Icons.remove,
                             color: appColors.whiteColors,
                             size: 15,
@@ -320,13 +309,13 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                 onPressed: () {
                   BlocProvider.of<CartBloc>(context).add(AddToCartEvent(
                       cartEntity: CartEntity(
-                          image: widget.image,
-                          name: widget.name,
-                          price: widget.price,
-                          quantity: a,
-                          total: total,
-                          addedBy: auth.currentUser!.uid,
-                      )));
+                    image: widget.image,
+                    name: widget.name,
+                    price: widget.price,
+                    quantity: a,
+                    total: total,
+                    addedBy: auth.currentUser!.uid,
+                  )));
                   Utils().flutterToast('Added to cart');
                 },
                 style: ButtonStyle(

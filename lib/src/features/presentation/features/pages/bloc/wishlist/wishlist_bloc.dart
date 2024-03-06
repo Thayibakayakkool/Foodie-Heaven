@@ -44,6 +44,7 @@ class WishlistBloc extends Bloc<WishlistEvent, WishlistState> {
       GetWishlistDataEvent event, Emitter<WishlistState> emit) async {
     try {
       List<WishlistEntity> wishlist = await wishlistUseCases.getWishlistData();
+      wishlistIds.addAll(wishlist.map((e) => e.id).toList());
       emit(WishlistSuccess(wishlist, wishlistIds));
     } catch (e) {
       emit(WishlistError(errorMessage: e.toString()));

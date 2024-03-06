@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodie_heaven/src/features/data/models/payment_model.dart';
 import 'package:intl/intl.dart';
 
 //height
@@ -58,3 +59,4 @@ const paymentImage = [
   'https://e7.pngegg.com/pngimages/836/850/png-clipart-credit-card-debit-card-mastercard-payment-card-credit-card-payment-internet.png',
   'https://static.vecteezy.com/system/resources/previews/010/595/642/original/cod-cash-on-delivery-truck-car-graphic-free-vector.jpg'
 ];
+

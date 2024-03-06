@@ -7,12 +7,13 @@ import 'package:foodie_heaven/src/core/constants/constants.dart';
 import 'package:foodie_heaven/src/core/constants/firebase_constant.dart';
 import 'package:foodie_heaven/src/core/constants/firebase_details_constants.dart';
 import 'package:foodie_heaven/src/core/constants/styles.dart';
+import 'package:foodie_heaven/src/core/routes/routes_name.dart';
 import 'package:foodie_heaven/src/core/service/firebase_service.dart';
 import 'package:foodie_heaven/src/core/utils/utils.dart';
+import 'package:foodie_heaven/src/features/data/models/payment_model.dart';
 import 'package:foodie_heaven/src/features/domain/entities/order_entity.dart';
 import 'package:foodie_heaven/src/features/presentation/features/pages/bloc/order/order_bloc.dart';
 import 'package:foodie_heaven/src/features/presentation/features/pages/home/settings_page/order_page/order_page.dart';
-import 'package:foodie_heaven/src/features/presentation/features/pages/home/settings_page/settings_page.dart';
 import 'package:foodie_heaven/src/features/presentation/features/pages/home/widgets/text_widget.dart';
 
 class ConfirmOrderPage extends StatefulWidget {
@@ -33,17 +34,7 @@ class ConfirmOrderPage extends StatefulWidget {
 }
 
 class _ConfirmOrderPageState extends State<ConfirmOrderPage> {
-  ValueNotifier<int> selects = ValueNotifier(0);
-
-  select() {
-    selects.value = selects.value + 1;
-  }
-
-  // int _type = 1;
-  //
-  // void _handleRadio(Object? e) => setState(() {
-  //       _type = e as int;
-  //     });
+   ValueNotifier<int> selects = ValueNotifier(0);
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +70,7 @@ class _ConfirmOrderPageState extends State<ConfirmOrderPage> {
                       ListView.builder(
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
-                        itemCount: paymentMethod.length,
+                        itemCount: payment.length,
                         itemBuilder: (context, index) {
                           return ValueListenableBuilder(
                             valueListenable: selects,
@@ -90,7 +81,7 @@ class _ConfirmOrderPageState extends State<ConfirmOrderPage> {
                                   width: size.width,
                                   height: 55,
                                   decoration: BoxDecoration(
-                                      border: value == index
+                                      border: value == payment[index].id
                                           ? Border.all(color: AppColors().amber)
                                           : Border.all(color: AppColors().grey),
                                       borderRadius: BorderRadius.circular(5)),
@@ -107,18 +98,18 @@ class _ConfirmOrderPageState extends State<ConfirmOrderPage> {
                                             children: [
                                               IconButton(
                                                   onPressed: () {
-                                                    select();
+                                                  selects.value=payment[index].id;
                                                   },
                                                   icon: Icon(
-                                                    value == index
+                                                    value == payment[index].id
                                                         ? Icons.radio_button_on
                                                         : Icons.radio_button_off,
                                                     color: AppColors().amber,
                                                     size: 20,
                                                   )),
                                               Text(
-                                                paymentMethod[index],
-                                                style: value == index
+                                                payment[index].name,
+                                                style: value == payment[index].id
                                                     ? regularTextStyle(
                                                         FontWeight.bold,
                                                         AppColors().amber,
@@ -131,7 +122,7 @@ class _ConfirmOrderPageState extends State<ConfirmOrderPage> {
                                             ],
                                           ),
                                           Image.network(
-                                            paymentImage[index],
+                                            payment[index].image,
                                             width: 60,
                                             fit: BoxFit.cover,
                                           )
@@ -272,16 +263,14 @@ class _ConfirmOrderPageState extends State<ConfirmOrderPage> {
                                     name: data['name'].toString(),
                                     address: data['address'].toString(),
                                     phoneNo: data['phoneNo'].toString(),
-                                    paymentMethod: paymentMethod[selects.value],
+                                    paymentMethod: payment[selects.value].name,
                                     orderBy: auth.currentUser!.uid,
                                     orderDate: formattedDate,
                                   )));
-                                  Navigator.push(
+                                  Navigator.pushNamed(
                                       context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            const OrderPage(),
-                                      ));
+                                      orderPage
+                                      );
                                 },
                               );
                               clearCart();

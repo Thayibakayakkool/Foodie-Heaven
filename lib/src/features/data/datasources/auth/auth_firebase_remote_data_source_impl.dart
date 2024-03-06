@@ -6,6 +6,7 @@ import 'package:foodie_heaven/src/features/domain/entities/user_entity.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthFirebaseRemoteDataSourceImpl implements AuthFirebaseRemoteDataSource {
+
   @override
   Future<void> forgotPassword(String email) async {
     await auth.sendPasswordResetEmail(email: email);

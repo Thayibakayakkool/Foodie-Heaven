@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie_heaven/src/core/constants/constants.dart';
 import 'package:foodie_heaven/src/core/constants/string.dart';
+import 'package:foodie_heaven/src/core/routes/routes_name.dart';
 import 'package:foodie_heaven/src/features/presentation/features/pages/bloc/categories/categories_bloc.dart';
 import 'package:foodie_heaven/src/features/presentation/features/pages/bloc/wishlist/wishlist_bloc.dart';
 import 'package:foodie_heaven/src/features/presentation/features/pages/home/settings_page/wishlist_page/wishlist_page.dart';
@@ -13,11 +14,21 @@ import 'package:foodie_heaven/src/features/presentation/features/pages/home/widg
 import 'package:foodie_heaven/src/features/presentation/features/pages/home/widgets/search_widget.dart';
 import 'package:foodie_heaven/src/features/presentation/features/pages/home/widgets/text_widget.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({
     super.key,
   });
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    BlocProvider.of<WishlistBloc>(context).add(GetWishlistDataEvent());
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<CategoriesBloc>(context);
@@ -25,10 +36,8 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         appBar: appBarWidget(() {
           BlocProvider.of<WishlistBloc>(context).add(GetWishlistDataEvent());
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => const WishlistPage(),
-            ),
+          Navigator.pushNamed(
+            context,wishlistPage
           );
         }),
         body: SingleChildScrollView(

@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:foodie_heaven/src/core/constants/colors.dart';
 import 'package:foodie_heaven/src/core/constants/constants.dart';
@@ -9,8 +8,6 @@ import 'package:foodie_heaven/src/core/constants/firebase_details_constants.dart
 import 'package:foodie_heaven/src/core/constants/styles.dart';
 import 'package:foodie_heaven/src/core/service/firebase_service.dart';
 import 'package:foodie_heaven/src/core/utils/utils.dart';
-import 'package:foodie_heaven/src/features/domain/entities/cart_entity.dart';
-import 'package:foodie_heaven/src/features/presentation/features/pages/bloc/cart/cart_bloc.dart';
 import 'package:foodie_heaven/src/features/presentation/features/pages/home/cart_page/confirm_order_page.dart';
 import 'package:foodie_heaven/src/features/presentation/features/pages/home/widgets/text_widget.dart';
 

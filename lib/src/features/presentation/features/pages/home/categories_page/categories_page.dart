@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie_heaven/src/core/constants/colors.dart';
 import 'package:foodie_heaven/src/core/constants/constants.dart';
 import 'package:foodie_heaven/src/core/constants/styles.dart';
+import 'package:foodie_heaven/src/core/routes/routes_name.dart';
 import 'package:foodie_heaven/src/core/utils/utils.dart';
 import 'package:foodie_heaven/src/features/presentation/features/pages/bloc/categories/categories_bloc.dart';
 import 'package:foodie_heaven/src/features/presentation/features/pages/bloc/wishlist/wishlist_bloc.dart';
@@ -46,9 +47,7 @@ class CategoriesPage extends StatelessWidget {
                 onPressed: () {
                   BlocProvider.of<WishlistBloc>(context)
                       .add(GetWishlistDataEvent());
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const WishlistPage(),
-                  ));
+                  Navigator.pushNamed(context, wishlistPage);
                 },
                 icon: Icon(
                   Icons.favorite,
@@ -56,11 +55,9 @@ class CategoriesPage extends StatelessWidget {
                 )),
             IconButton(
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pushNamed(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => const CartPage(),
-                      ));
+                      cartPage);
                 },
                 icon: Icon(
                   Icons.shopping_cart,
