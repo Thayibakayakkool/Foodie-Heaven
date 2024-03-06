@@ -1,16 +1,26 @@
-# foodie_heaven
+# Foodie_Heaven_App
 
-A new Flutter project.
+Food Delivery App.
 
-## Getting Started
+## Login & Registration Screen
+<r>
+<img src="https://github.com/Thayibakayakkool/Foodie-Heaven/assets/147040960/f5f0a2c9-987f-43c9-a7c7-af47e8ff104e" width="200" height="400">
+<img src="https://github.com/Thayibakayakkool/Foodie-Heaven/assets/147040960/6b6f2597-9bf0-4621-b035-8c51f57de9fe" width="200" height="400">
+</r>
 
-This project is a starting point for a Flutter application.
+## Home Page & Setting Screen
+<r>
+<img src="https://github.com/Thayibakayakkool/Foodie-Heaven/assets/147040960/2f7a8210-f988-48b8-83ad-cfe5c4eff57c" width="200" height="400">
+<img src="https://github.com/Thayibakayakkool/Foodie-Heaven/assets/147040960/3fc798f3-e336-4765-9eb8-f32769ebc5c7" width="200" height="400">
+</r>
 
-A few resources to get you started if this is your first Flutter project:
+## Food Details Screen & Add To Cart Screen
+<r>
+<img src="https://github.com/Thayibakayakkool/Foodie-Heaven/assets/147040960/a22e2e88-64db-46a8-9598-ef812046b771" width="200" height="400">
+<img src="https://github.com/Thayibakayakkool/Foodie-Heaven/assets/147040960/383f59f8-187b-457d-ae1f-3a566cfc7839" width="200" height="400">
+</r>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Order Page
+<img src="https://github.com/Thayibakayakkool/Foodie-Heaven/assets/147040960/5b64cb17-2d4e-449e-8c0e-35543f84383e" width="200" height="400">
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
