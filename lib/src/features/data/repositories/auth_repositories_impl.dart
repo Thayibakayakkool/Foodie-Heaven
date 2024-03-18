@@ -1,3 +1,4 @@
+import 'package:foodie_heaven/src/core/constants/firebase_constant.dart';
 import 'package:foodie_heaven/src/features/data/datasources/auth/auth_firebase_remote_data_source.dart';
 import 'package:foodie_heaven/src/features/data/datasources/auth/auth_firebase_remote_data_source_impl.dart';
 import 'package:foodie_heaven/src/features/domain/entities/user_entity.dart';
@@ -5,7 +6,7 @@ import 'package:foodie_heaven/src/features/domain/repositories/auth_repo.dart';
 
 class AuthRepoImpl extends AuthRepo {
   final AuthFirebaseRemoteDataSource remoteDataSource =
-      AuthFirebaseRemoteDataSourceImpl();
+      AuthFirebaseRemoteDataSourceImpl(firebaseAuth: auth);
 
   @override
   Future<void> forgotPassword(String email) async =>

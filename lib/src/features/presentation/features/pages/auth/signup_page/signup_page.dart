@@ -149,11 +149,7 @@ class _SignUpPageState extends State<SignUpPage> {
               phoneNoController,
             ),
           ),
-          // kSizedBox15,
-          // Padding(
-          //   padding: EdgeInsets.symmetric(horizontal: 25.w),
-          //   child: otpWidget(),
-          // ),
+
           kSizedBox25,
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 30.w),

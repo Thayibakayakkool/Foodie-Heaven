@@ -5,9 +5,10 @@ import 'package:foodie_heaven/src/features/domain/entities/order_entity.dart';
 
 class OrderFirebaseRemoteDataSourceImpl
     implements OrderFirebaseRemoteDataSource {
+
   @override
   Future<void> orderConfirm(OrderEntity orderEntity) async {
-    orderCollection.doc().get().then((value) {
+   orderCollection.doc().get().then((value) {
       final order = OrderModel(
         subTotal: orderEntity.subTotal,
         deliveryFee: orderEntity.deliveryFee,

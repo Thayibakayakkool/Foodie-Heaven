@@ -1,5 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:foodie_heaven/src/core/constants/firebase_constant.dart';
-import 'package:foodie_heaven/src/core/utils/utils.dart';
 import 'package:foodie_heaven/src/features/data/datasources/cart/cart_firebase_remote_data_source.dart';
 import 'package:foodie_heaven/src/features/data/models/cart_model.dart';
 import 'package:foodie_heaven/src/features/domain/entities/cart_entity.dart';

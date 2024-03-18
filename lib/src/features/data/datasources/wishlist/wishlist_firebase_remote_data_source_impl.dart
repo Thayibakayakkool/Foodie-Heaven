@@ -8,7 +8,7 @@ class WishlistFirebaseRemoteDataSourceImpl
     implements WishlistFirebaseRemoteDataSource {
   @override
   Future<void> addWishlist(WishlistEntity wishlistEntity) async {
-    wishlistCollection.doc(wishlistEntity.id).set({
+   wishlistCollection.doc(wishlistEntity.id).set({
       'id': wishlistEntity.id,
       'name': wishlistEntity.name,
       'image': wishlistEntity.image,

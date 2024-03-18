@@ -44,17 +44,7 @@ Widget phoneNoTextFieldWidget(TextEditingController controller) {
               AppColors().amber,
             ),
             decoration: InputDecoration(
-              suffix: GestureDetector(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    AppStrings.send,
-                    style: textStyleColor(
-                      AppColors().amber,
-                    ),
-                  ),
-                ),
-              ),
+
               border: InputBorder.none,
               hintText: 'Phone No',
               hintStyle: textStyleColor(

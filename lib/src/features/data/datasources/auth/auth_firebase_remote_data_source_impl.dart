@@ -6,10 +6,12 @@ import 'package:foodie_heaven/src/features/domain/entities/user_entity.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthFirebaseRemoteDataSourceImpl implements AuthFirebaseRemoteDataSource {
+final FirebaseAuth firebaseAuth;
 
+  AuthFirebaseRemoteDataSourceImpl({required this.firebaseAuth});
   @override
   Future<void> forgotPassword(String email) async {
-    await auth.sendPasswordResetEmail(email: email);
+    await firebaseAuth.sendPasswordResetEmail(email: email);
   }
 
   @override
@@ -33,7 +35,7 @@ class AuthFirebaseRemoteDataSourceImpl implements AuthFirebaseRemoteDataSource {
   }
 
   @override
-  Future<String> getCurrentUserId() async => auth.currentUser!.uid;
+  Future<String> getCurrentUserId() async => firebaseAuth.currentUser!.uid;
 
   @override
   Future<void> googleAuth() async {
@@ -47,22 +49,22 @@ class AuthFirebaseRemoteDataSourceImpl implements AuthFirebaseRemoteDataSource {
   }
 
   @override
-  Future<bool> isLogIn() async => auth.currentUser?.uid != null;
+  Future<bool> isLogIn() async => firebaseAuth.currentUser?.uid != null;
 
   @override
   Future<void> logIn(UserEntity userEntity) async {
-    await auth.signInWithEmailAndPassword(
+    await firebaseAuth.signInWithEmailAndPassword(
         email: userEntity.email!, password: userEntity.password!);
   }
 
   @override
   Future<void> logOut() async {
-    await auth.signOut();
+    await firebaseAuth.signOut();
   }
 
   @override
   Future<void> signUp(UserEntity userEntity) async {
-    await auth.createUserWithEmailAndPassword(
+    await firebaseAuth.createUserWithEmailAndPassword(
         email: userEntity.email!, password: userEntity.password!);
   }
 

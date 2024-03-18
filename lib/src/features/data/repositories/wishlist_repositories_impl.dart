@@ -1,3 +1,4 @@
+import 'package:foodie_heaven/src/core/constants/firebase_constant.dart';
 import 'package:foodie_heaven/src/features/data/datasources/wishlist/wishlist_firebase_remote_data_source.dart';
 import 'package:foodie_heaven/src/features/data/datasources/wishlist/wishlist_firebase_remote_data_source_impl.dart';
 import 'package:foodie_heaven/src/features/domain/entities/wishlist_entity.dart';

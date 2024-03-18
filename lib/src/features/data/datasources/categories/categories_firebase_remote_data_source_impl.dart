@@ -1,3 +1,4 @@
+
 import 'package:foodie_heaven/src/core/constants/firebase_constant.dart';
 import 'package:foodie_heaven/src/core/utils/utils.dart';
 import 'package:foodie_heaven/src/features/data/datasources/categories/categories_firebase_remote_data_source.dart';
@@ -5,6 +6,7 @@ import 'package:foodie_heaven/src/features/domain/entities/categories_entity.dar
 
 class CategoriesFirebaseRemoteDataSourceImpl
     implements CategoriesFirebaseRemoteDataSource {
+
   @override
   Future<List<CategoriesEntity>> getBurger() async {
     try {
